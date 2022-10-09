@@ -90,7 +90,9 @@ class Board:
         for item, value in portTypes.items():
             bg = value.get('Background')
             text = value.get('Text')
-            self.colors['PortTypes'].update({item: {'Background': bg, 'Text': text}})
+            self.colors['PortTypes'].update(
+                {item: {'Background': bg, 'Text': text}}
+            )
 
         sizes = settings.get('Sizes', self.sizes.__dict__)
         self.sizes.load_settings(sizes)
