@@ -34,17 +34,21 @@ class Board:
         self.__dict__ = json.load(open(json_file, encoding='utf-8')).get(name)
 
         self.settings = self.__dict__.get('Settings')
-        self.load_settings(self.settings)
+
+        self.image_path = self.settings.get('ImagePath')
+        self.font_path = self.settings.get('FontPath')
+        self.colors = self.settings.get('Colors')
+        self.sizes = Sizes(self.settings.get('Sizes'))
 
         self.ports = self.__dict__.get('Ports')
         self.connections = []
 
     def load_settings(self, settings):
         if settings is None:
-            self.load_settings(self.settings)
+            return
 
-        self.image_path = settings.get('ImagePath')
-        self.font_path = settings.get('FontPath')
+        self.image_path = settings.get('ImagePath', self.image_path)
+        self.font_path = settings.get('FontPath', self.font_path)
 
-        self.colors = settings.get('Colors')
-        self.sizes = Sizes(settings.get('Sizes'))
+        self.colors = settings.get('Colors', self.colors)
+        self.sizes = Sizes(settings.get('Sizes', self.sizes.__dict__))
