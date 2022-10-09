@@ -5,17 +5,31 @@
         "FontPath": "../data/Roboto-Black.ttf",
         "Colors": {
             "Connection": [
-                188,
-                198,
-                198,
+                148,
+                163,
+                166,
                 255
             ],
             "PortTypes": {
-                "Default": {
+                "Sensors": {
                     "Background": [
                         241,
                         196,
                         55,
+                        255
+                    ],
+                    "Text": [
+                        255,
+                        255,
+                        255,
+                        255
+                    ]
+                },
+                "Actuators": {
+                    "Background": [
+                        7,
+                        102,
+                        252,
                         255
                     ],
                     "Text": [
@@ -52,20 +66,34 @@
                         255,
                         255
                     ]
+                },
+                "Others": {
+                    "Background": [
+                        34,
+                        161,
+                        136,
+                        255
+                    ],
+                    "Text": [
+                        255,
+                        255,
+                        255,
+                        255
+                    ]
                 }
             }
         },
         "Sizes": {
             "Connections": {
-                "Radius": 3,
-                "Size": 100,
+                "Radius": 4,
+                "Size": 140,
                 "Width": 3
             },
             "Names": {
                 "Height": 30,
-                "Border": 20,
+                "Border": 15,
                 "BorderRadius": 20,
-                "Font": 20
+                "Font": 22
             }
         }
     },
@@ -73,7 +101,7 @@
         "RESET": {
             "Name": "Reset push button",
             "InOut": "in",
-            "Type": "Default"
+            "Type": "Others"
         },
         "3.3V": {
             "Name": "3.3V Supply",
@@ -103,42 +131,42 @@
         "A0": {
             "Name": "Velocity Pot",
             "InOut": "in",
-            "Type": "Default"
+            "Type": "Sensors"
         },
         "A1": {
             "Name": "Left light sensor",
             "InOut": "in",
-            "Type": "Default"
+            "Type": "Sensors"
         },
         "A2": {
             "Name": "Right light sensor",
             "InOut": "in",
-            "Type": "Default"
+            "Type": "Sensors"
         },
         "A3": {
             "Name": "Temperature sensor",
             "InOut": "in",
-            "Type": "Default"
+            "Type": "Sensors"
         },
         "A4": {
             "Name": "Force sensor",
             "InOut": "in",
-            "Type": "Default"
+            "Type": "Sensors"
         },
         "A5": {
             "Name": "Battery voltage",
             "InOut": "in",
-            "Type": "Default"
+            "Type": "Sensors"
         },
         "SCL": {
             "Name": "I2C SCL Gyro",
             "InOut": "in_out",
-            "Type": "Default"
+            "Type": "Others"
         },
         "SDA": {
             "Name": "I2C SDA Gyro",
             "InOut": "in_out",
-            "Type": "Default"
+            "Type": "Others"
         },
         "GND3": {
             "Name": "Commom GND",
@@ -148,67 +176,67 @@
         "D2": {
             "Name": "Switch button",
             "InOut": "in",
-            "Type": "Default"
+            "Type": "Sensors"
         },
         "D3": {
             "Name": "LED1",
             "InOut": "out",
-            "Type": "Default"
+            "Type": "Actuators"
         },
         "D4": {
             "Name": "LED2",
             "InOut": "out",
-            "Type": "Default"
+            "Type": "Actuators"
         },
         "D5": {
             "Name": "PWM IN1",
             "InOut": "out",
-            "Type": "Default"
+            "Type": "Actuators"
         },
         "D6": {
             "Name": "PWM IN2",
             "InOut": "out",
-            "Type": "Default"
+            "Type": "Actuators"
         },
         "D7": {
             "Name": ":P",
             "InOut": "out",
-            "Type": "Default"
+            "Type": "Others"
         },
         "D8": {
             "Name": "Pequenos também, olha:",
             "InOut": "out",
-            "Type": "Default"
+            "Type": "Others"
         },
         "D9": {
             "Name": "PWM IN3",
             "InOut": "out",
-            "Type": "Default"
+            "Type": "Actuators"
         },
         "D10": {
             "Name": "PWM IN4",
             "InOut": "out",
-            "Type": "Default"
+            "Type": "Actuators"
         },
         "D11": {
             "Name": "PWM Servo",
             "InOut": "out",
-            "Type": "Default"
+            "Type": "Actuators"
         },
         "D12": {
-            "Name": "Você pode usar nomes hiper ultra mega blaster longos",
+            "Name": "Você pode usar nomes super ultra mega longos",
             "InOut": "out",
-            "Type": "Default"
+            "Type": "Others"
         },
         "TX": {
             "Name": "TX Bluetooth",
             "InOut": "out",
-            "Type": "Default"
+            "Type": "Others"
         },
         "RX": {
             "Name": "RX Bluetooth",
             "InOut": "in",
-            "Type": "Default"
+            "Type": "Others"
         }
     }
 }

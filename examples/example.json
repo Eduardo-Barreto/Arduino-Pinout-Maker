@@ -1,0 +1,145 @@
+{
+    "Board": "UNO",
+    "Connections": {
+        "RESET": {
+            "Name": "Reset push button",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "3.3V": {
+            "Name": "3.3V Supply",
+            "InOut": "out",
+            "Type": "Power"
+        },
+        "5V": {
+            "Name": "5V Supply",
+            "InOut": "out",
+            "Type": "Power"
+        },
+        "GND1": {
+            "Name": "GND 1",
+            "InOut": "out",
+            "Type": "Ground"
+        },
+        "GND2": {
+            "Name": "GND DC Power",
+            "InOut": "in",
+            "Type": "Ground"
+        },
+        "VIN": {
+            "Name": "12V DC Power",
+            "InOut": "in",
+            "Type": "Power"
+        },
+        "A0": {
+            "Name": "Velocity Pot",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "A1": {
+            "Name": "Left light sensor",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "A2": {
+            "Name": "Right light sensor",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "A3": {
+            "Name": "Temperature sensor",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "A4": {
+            "Name": "Force sensor",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "A5": {
+            "Name": "Battery voltage",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "SCL": {
+            "Name": "I2C SCL Gyro",
+            "InOut": "in_out",
+            "Type": "Default"
+        },
+        "SDA": {
+            "Name": "I2C SDA Gyro",
+            "InOut": "in_out",
+            "Type": "Default"
+        },
+        "GND3": {
+            "Name": "Commom GND",
+            "InOut": "in_out",
+            "Type": "Ground"
+        },
+        "D2": {
+            "Name": "Switch button",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "D3": {
+            "Name": "LED1",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "D4": {
+            "Name": "LED2",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "D5": {
+            "Name": "PWM IN1",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "D6": {
+            "Name": "PWM IN2",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "D7": {
+            "Name": ":P",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "D8": {
+            "Name": "Pequenos também, olha:",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "D9": {
+            "Name": "PWM IN3",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "D10": {
+            "Name": "PWM IN4",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "D11": {
+            "Name": "PWM Servo",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "D12": {
+            "Name": "Você pode usar nomes hiper ultra mega blaster longos",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "TX": {
+            "Name": "TX Bluetooth",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "RX": {
+            "Name": "RX Bluetooth",
+            "InOut": "in",
+            "Type": "Default"
+        }
+    }
+}
