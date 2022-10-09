@@ -96,5 +96,3 @@ class Board:
 
         sizes = settings.get('Sizes', self.sizes.__dict__)
         self.sizes.load_settings(sizes)
-
-
