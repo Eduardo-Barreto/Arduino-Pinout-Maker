@@ -1,0 +1,20 @@
+{
+    "Board": "UNO",
+    "Ports": {
+        "5V": {
+            "Name": "5V",
+            "InOut": "out",
+            "Type": "Power"
+        },
+        "GND1": {
+            "Name": "GND",
+            "InOut": "out",
+            "Type": "Ground"
+        },
+        "A0": {
+            "Name": "ANALOG example",
+            "InOut": "in",
+            "Type": "Default"
+        }
+    }
+}
