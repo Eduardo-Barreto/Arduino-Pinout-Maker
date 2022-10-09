@@ -1,22 +1,20 @@
-from PIL import Image
 import json
 
-import draw
+from draw import Draw
+from board import Board, Connection
 
-my_ports = json.load(open('./data/example.json'))
-board = my_ports.get('Board')
+user = json.load(open('../data/example.json', encoding='utf-8'))
+board = user.get('Board')
+settings = user.get('Settings')
+connections = user.get('Connections')
 
+arduino = Board(board, '../data/boards.json')
+arduino.load_settings(settings)
 
-arduino_path = f'./data/Arduino{board}.jpg'
+drawing = Draw(arduino)
 
-# Load the json file
-arduino_ports = json.load(open('./data/ports.json'))
-arduino_ports = arduino_ports.get(board)
+for port, details in connections.items():
+    connection = Connection({port: details})
+    drawing.port(connection)
 
-
-with Image.open(arduino_path) as img:
-
-    for port, details in my_ports.get('Ports').items():
-        draw.all_port(img, port, details.get('Name'), details.get('InOut'), details.get('Type'), arduino_ports)
-
-    img.show()
+drawing.img.save('../data/example.jpg')

@@ -1,0 +1,234 @@
+{
+    "Board": "UNO",
+    "Settings": {
+        "ImagePath": "../data/ArduinoUno.jpg",
+        "FontPath": "../data/Roboto-Black.ttf",
+        "Colors": {
+            "Connection": [
+                188,
+                198,
+                198,
+                255
+            ],
+            "PortTypes": {
+                "Default": {
+                    "Background": [
+                        241,
+                        196,
+                        55,
+                        255
+                    ],
+                    "Text": [
+                        255,
+                        255,
+                        255,
+                        255
+                    ]
+                },
+                "Ground": {
+                    "Background": [
+                        23,
+                        30,
+                        33,
+                        255
+                    ],
+                    "Text": [
+                        255,
+                        255,
+                        255,
+                        255
+                    ]
+                },
+                "Power": {
+                    "Background": [
+                        192,
+                        34,
+                        21,
+                        255
+                    ],
+                    "Text": [
+                        255,
+                        255,
+                        255,
+                        255
+                    ]
+                }
+            }
+        },
+        "Sizes": {
+            "Connections": {
+                "Radius": 3,
+                "Size": 100,
+                "Width": 3
+            },
+            "Names": {
+                "Height": 30,
+                "Border": 20,
+                "BorderRadius": 20,
+                "Font": 20
+            }
+        }
+    },
+    "Connections": {
+        "NC": {
+            "Name": "No connection",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "IOREF": {
+            "Name": "I/O Reference",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "RESET": {
+            "Name": "Reset",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "3.3V": {
+            "Name": "3.3V Supply",
+            "InOut": "out",
+            "Type": "Power"
+        },
+        "5V": {
+            "Name": "5V Supply",
+            "InOut": "out",
+            "Type": "Power"
+        },
+        "GND1": {
+            "Name": "GND 1",
+            "InOut": "None",
+            "Type": "Ground"
+        },
+        "GND2": {
+            "Name": "GND 2",
+            "InOut": "None",
+            "Type": "Ground"
+        },
+        "VIN": {
+            "Name": "12V In",
+            "InOut": "in",
+            "Type": "Power"
+        },
+        "A0": {
+            "Name": "Analog 0",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "A1": {
+            "Name": "Analog 1",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "A2": {
+            "Name": "Analog 2",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "A3": {
+            "Name": "Analog 3",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "A4": {
+            "Name": "Analog 4",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "A5": {
+            "Name": "Analog 5",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D0": {
+            "Name": "Digital 0 / RX",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "D1": {
+            "Name": "Digital 1 / TX",
+            "InOut": "out",
+            "Type": "Default"
+        },
+        "D2": {
+            "Name": "Digital 2",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D3": {
+            "Name": "Digital 3",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D4": {
+            "Name": "Digital 4",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D5": {
+            "Name": "Digital 5",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D6": {
+            "Name": "Digital 6",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D7": {
+            "Name": "Digital 7",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D8": {
+            "Name": "Digital 8",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D9": {
+            "Name": "Digital 9",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D10": {
+            "Name": "Digital 10",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D11": {
+            "Name": "Digital 11",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D12": {
+            "Name": "Digital 12",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "D13": {
+            "Name": "Digital 13",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "AREF": {
+            "Name": "Analog reference",
+            "InOut": "None",
+            "Type": "Default"
+        },
+        "GND3": {
+            "Name": "GND 3",
+            "InOut": "None",
+            "Type": "Ground"
+        },
+        "SCL": {
+            "Name": "I2C SCL",
+            "InOut": "in_out",
+            "Type": "Default"
+        },
+        "SDA": {
+            "Name": "I2C SDA",
+            "InOut": "in_out",
+            "Type": "Default"
+        }
+    }
+}
