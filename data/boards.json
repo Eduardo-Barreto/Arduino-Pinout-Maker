@@ -4,7 +4,7 @@
             "ImagePath": "../data/ArduinoUno.jpg",
             "FontPath": "../data/Roboto-Black.ttf",
             "Colors": {
-                "Connection": [
+                "Connections": [
                     148,
                     163,
                     166,
