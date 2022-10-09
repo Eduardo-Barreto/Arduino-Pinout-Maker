@@ -1,308 +1,179 @@
 from PIL import Image, ImageDraw, ImageFont
-
-font = ImageFont.truetype('./data/Roboto-Black.ttf')
-
-
-class Colors:
-    CONNECTION = (188, 198, 198, 255)
-
-    PORT_TYPES = {
-        'Default': {
-            'bg': (241, 196, 55, 255),
-            'text': (255, 255, 255, 255)
-        },
-        'Ground': {
-            'bg': (23, 30, 33, 255),
-            'text': (255, 255, 255, 255)
-        },
-        'Power': {
-            'bg': (192, 34, 21, 255),
-            'text': (255, 255, 255, 255)
-        }
-    }
+from board import Board, Connection
 
 
-class Sizes:
-    CONNECTION_RADIUS = 6
-    CONNECTION_SIZE = 100
-    CONNECTION_WIDTH = 2
+class Draw:
+    def __init__(self, board: Board):
+        self.board = board
+        self.img = Image.open(self.board.image_path)
+        self.colors = self.board.colors
+        self.sizes = self.board.sizes
+        self.ports = self.board.ports
+        self.font = ImageFont.truetype(self.board.font_path, self.sizes.font)
 
-    NAME_BORDER_RADIUS = 10
-    NAME_HEIGHT = 30
-    LOWER_NAME_WIDTH = 9.5
-    UPPER_NAME_WIDTH = 13.5
-    NAME_BORDER = 10
-
-
-def get_name_width(name: str) -> int:
-    '''
-    Retorna a largura do nome da conexão
-
-    Parâmetros:
-    ----------
-    name: str
-        Nome da conexão
-
-    Retorno:
-    -------
-    width: int
-        Largura do nome da conexão
-    '''
-    upper = sum(1 for c in name if c.isupper())
-    lower = sum(1 for c in name if c.islower())
-    numbers = sum(1 for c in name if c.isdigit())
-    others = sum(1 for c in name if not c.isalnum())
-
-    width = Sizes.UPPER_NAME_WIDTH * upper
-    width += Sizes.LOWER_NAME_WIDTH * lower
-    width += Sizes.LOWER_NAME_WIDTH * numbers
-    width += Sizes.LOWER_NAME_WIDTH * others*0.6
-
-    return width
-
-
-def input_arrow(img: Image, port: str, ports_info: dict):
-    '''
-    Desenha a seta de entrada
-
-    Parâmetros:
-    ----------
-    img: Image
-        Imagem a ser desenhada
-
-    port: str
-        Pino a ser desenhado
-
-    ports_info: dict
-        Dicionário com as informações dos pinos
-
-    Retorno:
-    -------
-    ImageDraw
-        Imagem com a seta de entrada desenhada
-    '''
-    port_position = ports_info.get('Ports').get(port)
-
-    x, y = int(port_position.get('x')), int(port_position.get('y'))
-
-    draw = ImageDraw.Draw(img)
-
-    draw.line(
-        (
-            int(x-(Sizes.CONNECTION_SIZE*0.6)),
-            y,
-            int(x-(Sizes.CONNECTION_SIZE*0.6)-10),
-            y-10
-        ),
-        fill=Colors.CONNECTION,
-        width=Sizes.CONNECTION_WIDTH,
-        joint='curve'
-    )
-
-    draw.line(
-        (
-            int(x-(Sizes.CONNECTION_SIZE*0.6)),
-            y,
-            int(x-(Sizes.CONNECTION_SIZE*0.6)-10),
-            y+10
-        ),
-        fill=Colors.CONNECTION,
-        width=Sizes.CONNECTION_WIDTH,
-        joint='curve'
+    def input_arrow(self, x, y, connection_color, draw):
+        draw.line(
+            (
+                x-self.sizes.connection_size*0.6,
+                y,
+                x-self.sizes.connection_size*0.6-10,
+                y-10
+            ),
+            fill=connection_color,
+            width=self.sizes.connection_width
+        )
+        draw.line(
+            (
+                x-self.sizes.connection_size*0.6,
+                y,
+                x-self.sizes.connection_size*0.6-10,
+                y+10
+            ),
+            fill=connection_color,
+            width=self.sizes.connection_width
         )
 
+    def output_arrow(self, x, y, connection_color, draw):
+        draw.line(
+            (
+                x-self.sizes.connection_size*0.6,
+                y,
+                x-self.sizes.connection_size*0.6+10,
+                y-10
+            ),
+            fill=connection_color,
+            width=self.sizes.connection_width
+        )
+        draw.line(
+            (
+                x-self.sizes.connection_size*0.6,
+                y,
+                x-self.sizes.connection_size*0.6+10,
+                y+10
+            ),
+            fill=connection_color,
+            width=self.sizes.connection_width
+        )
 
-def output_arrow(img: Image, port: str, ports_info: dict):
-    '''
-    Desenha a seta de saída
+    def connection(self, connection_to_draw: Connection) -> None:
+        '''
+        Desenha a conexão
 
-    Parâmetros:
-    ----------
-    img: Image
-        Imagem a ser desenhada
+        Parâmetros:
+        ----------
+        connection_to_draw: Connection
+            Conexão a ser desenhada
+        '''
+        port_position = self.ports.get(connection_to_draw.port)
+        x, y = int(port_position.get('x')), int(port_position.get('y'))
+        connection_color = tuple(self.board.colors.get('Connection'))
 
-    port: str
-        Pino a ser desenhado
+        right_side = x > self.img.width/2
 
-    ports_info: dict
-        Dicionário com as informações dos pinos
+        if right_side:
+            self.sizes.connection_size = -abs(self.sizes.connection_size)
 
-    Retorno:
-    -------
-    ImageDraw
-        Imagem com a seta de saída desenhada
-    '''
-    port_position = ports_info.get('Ports').get(port)
+            if connection_to_draw.in_out == 'in':
+                connection_to_draw.in_out = 'out'
+            elif connection_to_draw.in_out == 'out':
+                connection_to_draw.in_out = 'in'
 
-    x, y = int(port_position.get('x')), int(port_position.get('y'))
+        else:
+            self.sizes.connection_size = abs(self.sizes.connection_size)
 
-    draw = ImageDraw.Draw(img)
+        draw = ImageDraw.Draw(self.img)
 
-    draw.line(
-        (
-            int(x-(Sizes.CONNECTION_SIZE*0.7)),
-            y,
-            int(x-(Sizes.CONNECTION_SIZE*0.7)+10),
-            y-10
-        ),
-        fill=Colors.CONNECTION,
-        width=Sizes.CONNECTION_WIDTH,
-        joint='curve'
-    )
+        draw.ellipse(
+            (
+                x - self.sizes.connection_radius,
+                y - self.sizes.connection_radius,
+                x + self.sizes.connection_radius,
+                y + self.sizes.connection_radius
+            ),
+            fill=connection_color
+        )
 
-    draw.line(
-        (
-            int(x-(Sizes.CONNECTION_SIZE*0.7)),
-            y,
-            int(x-(Sizes.CONNECTION_SIZE*0.7)+10),
-            y+10
-        ),
-        fill=Colors.CONNECTION,
-        width=Sizes.CONNECTION_WIDTH,
-        joint='curve'
-    )
+        draw.line(
+            (x, y, x-self.sizes.connection_size, y),
+            fill=connection_color,
+            width=self.sizes.connection_width
+        )
 
+        if connection_to_draw.in_out == 'in':
+            self.input_arrow(x, y, connection_color, draw)
 
-def connection(img: Image, port: str, in_out: str, ports_info: dict):
-    '''
-    Desenha uma conexão em um pino específico
+        elif connection_to_draw.in_out == 'out':
+            self.output_arrow(x, y, connection_color, draw)
 
-    Parâmetros:
-    ----------
-    img: Image
-        Imagem a ser desenhada
+        elif connection_to_draw.in_out == 'in_out':
+            self.output_arrow(x-15, y, connection_color, draw)
+            self.input_arrow(x+15, y, connection_color, draw)
 
-    port: str
-        Pino a ser desenhado
+    def name(self, connection_to_draw: Connection):
+        '''
+        Desenha o nome da conexão
 
-    ports_info: dict
-        Dicionário com as informações dos pinos
+        Parâmetros:
+        ----------
+        connection_to_draw: Connection
+            Conexão a ser desenhada
+        '''
 
-    Retorno:
-    -------
-    ImageDraw
-        Imagem com a conexão desenhada
-    '''
-    connection_radius = int(ports_info.get('PortSize'))/Sizes.CONNECTION_RADIUS
+        port_position = self.ports.get(connection_to_draw.port)
+        x, y = int(port_position.get('x')), int(port_position.get('y'))
+        colors = self.colors.get('PortTypes').get(connection_to_draw.type)
+        bg_color = tuple(colors.get('Background'))
+        text_color = tuple(colors.get('Text'))
 
-    port_position = ports_info.get('Ports').get(port)
+        self.sizes.connection_size = abs(self.sizes.connection_size)
 
-    x, y = int(port_position.get('x')), int(port_position.get('y'))
+        right_side = x > self.img.width/2
 
-    draw = ImageDraw.Draw(img)
-    draw.ellipse(
-        (
-            x-connection_radius,
-            y-connection_radius,
-            x+connection_radius,
-            y+connection_radius
-        ),
-        fill=Colors.CONNECTION
-    )
+        draw = ImageDraw.Draw(self.img)
+        height = self.sizes.name_height
+        width = self.font.getlength(connection_to_draw.name)
 
-    draw.line(
-        (x, y, x-Sizes.CONNECTION_SIZE, y),
-        fill=Colors.CONNECTION,
-        width=Sizes.CONNECTION_WIDTH,
-        joint='curve'
-    )
+        height /= 2
 
-    if in_out == 'in':
-        input_arrow(img, port, ports_info)
+        if right_side:
+            init_x = x + self.sizes.connection_size
+            end_x = init_x + width
 
-    if in_out == 'out':
-        output_arrow(img, port, ports_info)
+        else:
+            init_x = x - self.sizes.connection_size - width
+            end_x = init_x + width
 
+        draw.rounded_rectangle(
+            (
+                init_x - self.sizes.name_border,
+                y-height,
+                end_x + self.sizes.name_border,
+                y+height
+            ),
+            radius=self.sizes.name_border_radius,
+            fill=bg_color
+        )
+        draw.text(
+            (init_x, y),
+            connection_to_draw.name,
+            fill=text_color,
+            font=self.font,
+            anchor='lm'
+        )
 
-def name(img: Image, port: str, name: str, port_type: str, ports_info: dict):
-    '''
-    Desenha o nome da conexão
+    def port(self, connection_to_draw: Connection):
+        '''
+        Desenha a conexão e o nome da conexão
 
-    Parâmetros:
-    ----------
-    img: Image
-        Imagem a ser desenhada
-
-    port: str
-        Pino a ser desenhado
-
-    name: str
-        Nome da conexão
-
-    port_type: str
-        Tipo da conexão
-
-    ports_info: dict
-        Dicionário com as informações dos pinos
-
-    Retorno:
-    -------
-    ImageDraw
-        Imagem com o nome da conexão desenhado
-    '''
-    port_position = ports_info.get('Ports').get(port)
-
-    x, y = int(port_position.get('x')), int(port_position.get('y'))
-
-    draw = ImageDraw.Draw(img)
-    height = Sizes.NAME_HEIGHT
-
-    width = get_name_width(name)
-
-    height /= 2
-    width /= 2
-
-    end_x = x - Sizes.CONNECTION_SIZE
-    init_x = end_x - width
-
-    bg_color = Colors.PORT_TYPES.get(port_type).get('bg')
-    text_color = Colors.PORT_TYPES.get(port_type).get('text')
-
-    draw.rounded_rectangle(
-        (
-            init_x - Sizes.NAME_BORDER/2,
-            y-height,
-            end_x + Sizes.NAME_BORDER/2,
-            y+height
-        ),
-        radius=Sizes.NAME_BORDER_RADIUS,
-        fill=bg_color
-    )
-
-    draw.text(
-        (init_x, y),
-        name,
-        fill=text_color,
-        font=font,
-        anchor='lm'
-    )
-
-
-def all_port(img: Image, port: str, port_name: str, in_out: str, port_type: str, ports_info: dict):
-    '''
-    Desenha todos os elementos de uma conexão
-
-    Parâmetros:
-    ----------
-    img: Image
-        Imagem a ser desenhada
-
-    port: str
-        Pino a ser desenhado
-
-    port_name: str
-        Nome da conexão
-
-    port_type: str
-        Tipo da conexão
-
-    ports_info: dict
-        Dicionário com as informações dos pinos
-
-    Retorno:
-    -------
-    ImageDraw
-        Imagem com todos os elementos da conexão desenhados
-    '''
-    connection(img, port, in_out, ports_info)
-    name(img, port, port_name, port_type, ports_info)
+        Parâmetros:
+        ----------
+        connection_to_draw: Connection
+            Conexão a ser desenhada
+        '''
+        try:
+            self.connection(connection_to_draw)
+            self.name(connection_to_draw)
+            self.board.connections.append(connection_to_draw.__dict__)
+        except Exception as e:
+            print('Erro ao desenhar a conexão: ', connection_to_draw.__dict__)
+            print(e)
