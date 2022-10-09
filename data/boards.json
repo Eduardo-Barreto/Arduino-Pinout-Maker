@@ -5,9 +5,9 @@
             "FontPath": "../data/Roboto-Black.ttf",
             "Colors": {
                 "Connection": [
-                    188,
-                    198,
-                    198,
+                    148,
+                    163,
+                    166,
                     255
                 ],
                 "PortTypes": {
@@ -57,15 +57,15 @@
             },
             "Sizes": {
                 "Connections": {
-                    "Radius": 3,
-                    "Size": 100,
-                    "Width": 2
+                    "Radius": 4,
+                    "Size": 140,
+                    "Width": 3
                 },
                 "Names": {
                     "Height": 30,
-                    "Border": 20,
+                    "Border": 15,
                     "BorderRadius": 20,
-                    "Font": 20
+                    "Font": 22
                 }
             }
         },
