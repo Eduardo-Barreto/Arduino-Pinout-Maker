@@ -2,8 +2,8 @@
 Um criador de pinout do arduino para os seus projetos :)
 
 # Exemplo
-Gerado com o [Exemplo](./data/example.json)
+Gerado com o [exemplo](./data/example.json)
 ![Exemplo](./data/example.jpg)
 ---
-Gerado com o [AllPorts](./data/AllPorts.json)
-![Exemplo](./data/AllPorts.jpg)
+Gerado com o [allPorts](./data/allPorts.json)
+![Exemplo](./data/allPorts.jpg)
