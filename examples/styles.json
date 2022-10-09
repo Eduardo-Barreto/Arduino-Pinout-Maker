@@ -39,34 +39,6 @@
                         255
                     ]
                 },
-                "Ground": {
-                    "Background": [
-                        23,
-                        30,
-                        33,
-                        255
-                    ],
-                    "Text": [
-                        255,
-                        255,
-                        255,
-                        255
-                    ]
-                },
-                "Power": {
-                    "Background": [
-                        192,
-                        34,
-                        21,
-                        255
-                    ],
-                    "Text": [
-                        255,
-                        255,
-                        255,
-                        255
-                    ]
-                },
                 "Others": {
                     "Background": [
                         34,
@@ -81,19 +53,6 @@
                         255
                     ]
                 }
-            }
-        },
-        "Sizes": {
-            "Connections": {
-                "Radius": 4,
-                "Size": 140,
-                "Width": 3
-            },
-            "Names": {
-                "Height": 30,
-                "Border": 15,
-                "BorderRadius": 20,
-                "Font": 22
             }
         }
     },

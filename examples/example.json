@@ -1,5 +1,27 @@
 {
     "Board": "UNO",
+    "Settings": {
+        "Sizes": {
+            "Names": {
+                "Font": 20
+            },
+            "Connections": {
+                "Size": 100
+            }
+        },
+        "Colors": {
+            "PortTypes": {
+                "Default": {
+                    "Text": [
+                        0,
+                        0,
+                        0,
+                        255
+                    ]
+                }
+            }
+        }
+    },
     "Connections": {
         "RESET": {
             "Name": "Reset push button",

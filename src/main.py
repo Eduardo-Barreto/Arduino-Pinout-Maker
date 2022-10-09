@@ -3,7 +3,7 @@ import json
 from draw import Draw
 from board import Board, Connection
 
-user = json.load(open('../data/example.json', encoding='utf-8'))
+user = json.load(open('../examples/styles.json', encoding='utf-8'))
 board = user.get('Board')
 settings = user.get('Settings')
 connections = user.get('Connections')
@@ -17,4 +17,5 @@ for port, details in connections.items():
     connection = Connection({port: details})
     drawing.port(connection)
 
-drawing.img.save('../data/example.jpg')
+drawing.color_legend()
+drawing.img.save('../examples/styles.jpg')

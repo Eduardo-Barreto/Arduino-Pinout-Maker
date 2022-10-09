@@ -27,21 +27,51 @@ class Sizes:
         self.name_border_radius = int(names_dict.get("BorderRadius"))
         self.font = int(names_dict.get("Font"))
 
+    def load_settings(self, sizes_dict):
+        connections_dict = sizes_dict.get("Connections")
+        names_dict = sizes_dict.get("Names")
+
+        if connections_dict is not None:
+            self.connection_radius = int(
+                connections_dict.get("Radius", self.connection_radius)
+            )
+            self.connection_size = int(
+                connections_dict.get("Size", self.connection_size)
+            )
+            self.connection_width = int(
+                connections_dict.get("Width", self.connection_width)
+            )
+
+        if names_dict is not None:
+            self.name_height = int(
+                names_dict.get("Height", self.name_height)
+            )
+            self.name_border = int(
+                names_dict.get("Border", self.name_border)
+            )
+            self.name_border_radius = int(
+                names_dict.get("BorderRadius", self.name_border_radius)
+            )
+            self.font = int(
+                names_dict.get("Font", self.font)
+            )
+
 
 class Board:
     def __init__(self, name: str, json_file: str):
         self.name = name
         self.__dict__ = json.load(open(json_file, encoding='utf-8')).get(name)
 
-        self.settings = self.__dict__.get('Settings')
+        standard = self.__dict__.get('Settings')
 
-        self.image_path = self.settings.get('ImagePath')
-        self.font_path = self.settings.get('FontPath')
-        self.colors = self.settings.get('Colors')
-        self.sizes = Sizes(self.settings.get('Sizes'))
+        self.image_path = standard.get('ImagePath')
+        self.font_path = standard.get('FontPath')
+        self.colors = standard.get('Colors')
+        self.sizes = Sizes(standard.get('Sizes'))
 
         self.ports = self.__dict__.get('Ports')
         self.connections = []
+        self.used_types = []
 
     def load_settings(self, settings):
         if settings is None:
@@ -50,5 +80,19 @@ class Board:
         self.image_path = settings.get('ImagePath', self.image_path)
         self.font_path = settings.get('FontPath', self.font_path)
 
-        self.colors = settings.get('Colors', self.colors)
-        self.sizes = Sizes(settings.get('Sizes', self.sizes.__dict__))
+        colors = settings.get('Colors', self.colors)
+
+        self.colors['Connections'] = colors.get(
+            'Connections', self.colors.get('Connections')
+        )
+
+        portTypes = colors.get('PortTypes', self.colors.get('PortTypes'))
+        for item, value in portTypes.items():
+            bg = value.get('Background')
+            text = value.get('Text')
+            self.colors['PortTypes'].update({item: {'Background': bg, 'Text': text}})
+
+        sizes = settings.get('Sizes', self.sizes.__dict__)
+        self.sizes.load_settings(sizes)
+
+

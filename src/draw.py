@@ -66,7 +66,7 @@ class Draw:
         '''
         port_position = self.ports.get(connection_to_draw.port)
         x, y = int(port_position.get('x')), int(port_position.get('y'))
-        connection_color = tuple(self.board.colors.get('Connection'))
+        connection_color = tuple(self.board.colors.get('Connections'))
 
         right_side = x > self.img.width/2
 
@@ -174,6 +174,58 @@ class Draw:
             self.connection(connection_to_draw)
             self.name(connection_to_draw)
             self.board.connections.append(connection_to_draw.__dict__)
+            self.board.types_used.append(connection_to_draw.type)
         except Exception as e:
             print('Erro ao desenhar a conexão: ', connection_to_draw.__dict__)
             print(e)
+
+    def color_legend(self):
+        '''
+        Desenha uma paleta de cores no canto superior esquerdo
+        '''
+
+        colors = self.colors.get('PortTypes')
+
+        x = 40
+        y = 25
+
+        draw = ImageDraw.Draw(self.img)
+
+        for name, info in colors.items():
+            if name not in self.board.used_types:
+                continue
+
+            bg_color = tuple(info.get('Background'))
+            text_color = tuple(info.get('Text'))
+
+            legend_font = self.font
+            legend_font.size = legend_font.size*1.3
+
+            height = self.sizes.name_height*1.3
+            width = self.font.getlength(name)
+            border = self.sizes.name_border*1.3
+            radius = self.sizes.name_border_radius*1.3
+
+            init_x = x
+            end_x = init_x + width
+
+            draw.rounded_rectangle(
+                (
+                    init_x - border,
+                    y,
+                    end_x + border,
+                    y+height
+                ),
+                radius=radius,
+                fill=bg_color
+            )
+
+            draw.text(
+                (init_x+width/2, y+height/2),
+                name,
+                fill=text_color,
+                font=legend_font,
+                anchor='mm'
+            )
+
+            y += height + 10
