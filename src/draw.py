@@ -190,6 +190,7 @@ class Draw:
         y = 25
 
         draw = ImageDraw.Draw(self.img)
+        multiplier = self.sizes.legend_multiplier
 
         for name, info in colors.items():
             if name not in self.board.used_types:
@@ -199,12 +200,12 @@ class Draw:
             text_color = tuple(info.get('Text'))
 
             legend_font = self.font
-            legend_font.size = legend_font.size*1.3
+            legend_font.size = legend_font.size*multiplier
 
-            height = self.sizes.name_height*1.3
+            height = self.sizes.name_height*multiplier
             width = self.font.getlength(name)
-            border = self.sizes.name_border*1.3
-            radius = self.sizes.name_border_radius*1.3
+            border = self.sizes.name_border*multiplier
+            radius = self.sizes.name_border_radius*multiplier
 
             init_x = x
             end_x = init_x + width

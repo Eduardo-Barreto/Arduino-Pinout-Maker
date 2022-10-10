@@ -26,6 +26,7 @@ class Sizes:
         self.name_border = int(names_dict.get("Border"))
         self.name_border_radius = int(names_dict.get("BorderRadius"))
         self.font = int(names_dict.get("Font"))
+        self.legend_multiplier = int(names_dict.get("LegendMultiplier"))
 
     def load_settings(self, sizes_dict):
         connections_dict = sizes_dict.get("Connections")
@@ -54,6 +55,9 @@ class Sizes:
             )
             self.font = int(
                 names_dict.get("Font", self.font)
+            )
+            self.legend_multiplier = int(
+                names_dict.get("LegendMultiplier", self.legend_multiplier)
             )
 
 
