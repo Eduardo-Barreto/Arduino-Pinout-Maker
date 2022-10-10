@@ -1,0 +1,85 @@
+{
+    "Board": "a4988",
+    "Connections": {
+        "EN": {
+            "Name": "Enable pin",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "MS1": {
+            "Name": "Microstep 1",
+            "InOut": "in",
+            "Type": "Microstepping"
+        },
+        "MS2": {
+            "Name": "Microstep 2",
+            "InOut": "in",
+            "Type": "Microstepping"
+        },
+        "MS3": {
+            "Name": "Microstep 3",
+            "InOut": "in",
+            "Type": "Microstepping"
+        },
+        "RESET": {
+            "Name": "Reset pin",
+            "InOut": "in",
+            "Type": "Others"
+        },
+        "SLEEP": {
+            "Name": "Sleep pin",
+            "InOut": "in",
+            "Type": "Others"
+        },
+        "STEP": {
+            "Name": "Step pin",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "DIR": {
+            "Name": "Direction pin",
+            "InOut": "in",
+            "Type": "Default"
+        },
+        "VMOT": {
+            "Name": "Motor supply",
+            "InOut": "in",
+            "Type": "Power"
+        },
+        "GND1": {
+            "Name": "Motor ground",
+            "InOut": "in",
+            "Type": "Ground"
+        },
+        "2B": {
+            "Name": "2B pin",
+            "InOut": "out",
+            "Type": "Motor"
+        },
+        "2A": {
+            "Name": "2A pin",
+            "InOut": "out",
+            "Type": "Motor"
+        },
+        "1A": {
+            "Name": "1A pin",
+            "InOut": "out",
+            "Type": "Motor"
+        },
+        "1B": {
+            "Name": "1B pin",
+            "InOut": "out",
+            "Type": "Motor"
+        },
+        "VDD": {
+            "Name": "Logic supply",
+            "InOut": "in",
+            "Type": "Power"
+        },
+        "GND2": {
+            "Name": "Ground",
+            "InOut": "in",
+            "Type": "Ground"
+        }
+    }
+}
