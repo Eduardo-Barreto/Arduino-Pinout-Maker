@@ -1,6 +1,22 @@
 # Arduino-Pinout-Maker
 Um criador de pinout do arduino para os seus projetos :)
 
+# Exemplos
+Gerado com o [exemplo](./examples/example.json)
+Exemplo mais simples com poucas configurações.
+
+![Exemplo](./examples/example.jpg)
+---
+Gerado com o [allPorts](./examples/allPorts.json)
+Exemplo usando todas as portas do arduino UNO.
+
+![Exemplo-allPorts](./examples/allPorts.jpg)
+---
+Gerado com o [styles](./examples/styles.json)
+Exemplo ousando nas configurações de cores e tamanhos.
+
+![Exemplo-styles](./examples/styles.jpg)
+
 # Como usar
 ## Configurações
 As configurações são feitas no arquivo JSON, o arquivo de [boards](data/boards.json) contém os padrões, além da posição de cada pino.
@@ -94,18 +110,3 @@ As conexões também são feitas no arquivo JSON, assim como o exemplo abaixo.
 Esse exemplo cria 3 conexões no pino D11, D10 e D9, respectivamente.
 ![Connections](examples/connections.png)
 
-# Exemplos
-Gerado com o [exemplo](./examples/example.json)
-Exemplo mais simples com poucas configurações.
-
-![Exemplo](./examples/example.jpg)
----
-Gerado com o [allPorts](./examples/allPorts.json)
-Exemplo usando todas as portas do arduino UNO.
-
-![Exemplo-allPorts](./examples/allPorts.jpg)
----
-Gerado com o [styles](./examples/styles.json)
-Exemplo ousando nas configurações de cores e tamanhos.
-
-![Exemplo-styles](./examples/styles.jpg)
