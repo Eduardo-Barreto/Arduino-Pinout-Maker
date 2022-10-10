@@ -88,8 +88,14 @@ class Board:
 
         portTypes = colors.get('PortTypes', self.colors.get('PortTypes'))
         for item, value in portTypes.items():
-            bg = value.get('Background')
-            text = value.get('Text')
+
+            standard = self.colors.get('PortTypes').get(
+                item,
+                {"Background": None, "Text": None}
+            )
+
+            bg = value.get('Background', standard.get('Background'))
+            text = value.get('Text', standard.get('Text'))
             self.colors['PortTypes'].update(
                 {item: {'Background': bg, 'Text': text}}
             )
