@@ -174,7 +174,7 @@ class Draw:
             self.connection(connection_to_draw)
             self.name(connection_to_draw)
             self.board.connections.append(connection_to_draw.__dict__)
-            self.board.types_used.append(connection_to_draw.type)
+            self.board.used_types.append(connection_to_draw.type)
         except Exception as e:
             print('Erro ao desenhar a conexão: ', connection_to_draw.__dict__)
             print(e)
