@@ -86,27 +86,32 @@ As configurações de tamanho guardam cada tamanho de cada elemento, como o tama
 ## Conexões
 As conexões também são feitas no arquivo JSON, assim como o exemplo abaixo.
 - `Name`: Nome da conexão (que aparece dentro do oblongo)
-- `InOut`: Tipo de conexão (entrada ou saída ou entrada e saída)
+- `InOut`: Tipo de conexão (entrada, entrada com pullup, saída ou entrada e saída)
 - `Type`: Tipo da conexão (que define a cor do oblongo e do texto)
 ```json
 "Connections": {
-    "D11":{
+    "D11": {
         "Name": "PWM Servo 1",
-        "InOut": "out",
-        "Type": "Default",
+        "InOut": "Output",
+        "Type": "Default"
     },
-    "D10":{
+    "D10": {
         "Name": "Push button",
-        "InOut": "in",
-        "Type": "Default",
+        "InOut": "Input",
+        "Type": "Default"
     },
-    "D9":{
+    "D9": {
         "Name": "Communication",
-        "InOut": "in_out",
-        "Type": "Default",
+        "InOut": "InputOutput",
+        "Type": "Default"
+    },
+    "D8": {
+        "Name": "Push button",
+        "InOut": "InputPullup",
+        "Type": "Default"
     }
 }
 ```
-Esse exemplo cria 3 conexões no pino D11, D10 e D9, respectivamente.
-![Connections](examples/connections.png)
 
+Esse exemplo cria 3 conexões no pino D11, D10 e D9, respectivamente.
+![Connections](./examples/connections.png)
