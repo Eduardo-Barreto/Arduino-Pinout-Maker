@@ -105,7 +105,7 @@ class Draw:
         elif connection_to_draw.in_out == "Output":
             self.left_arrow(x, y, connection_color, draw)
 
-        elif connection_to_draw.in_out == "Input_Output":
+        elif connection_to_draw.in_out == "InputOutput":
             self.left_arrow(x-15, y, connection_color, draw)
             self.right_arrow(x+15, y, connection_color, draw)
 
