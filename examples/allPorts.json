@@ -13,17 +13,17 @@
         },
         "RESET": {
             "Name": "Reset",
-            "InOut": "in",
+            "InOut": "InputPullup",
             "Type": "Default"
         },
         "3.3V": {
             "Name": "3.3V Supply",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Power"
         },
         "5V": {
             "Name": "5V Supply",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Power"
         },
         "GND1": {
@@ -38,7 +38,7 @@
         },
         "VIN": {
             "Name": "12V In",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Power"
         },
         "A0": {
@@ -73,12 +73,12 @@
         },
         "D0": {
             "Name": "Digital 0 / RX",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Default"
         },
         "D1": {
             "Name": "Digital 1 / TX",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Default"
         },
         "D2": {
@@ -153,12 +153,12 @@
         },
         "SCL": {
             "Name": "I2C SCL",
-            "InOut": "in_out",
+            "InOut": "Input_Output",
             "Type": "Default"
         },
         "SDA": {
             "Name": "I2C SDA",
-            "InOut": "in_out",
+            "InOut": "Input_Output",
             "Type": "Default"
         }
     }

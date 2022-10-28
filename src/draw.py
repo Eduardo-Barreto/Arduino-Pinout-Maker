@@ -11,7 +11,7 @@ class Draw:
         self.ports = self.board.ports
         self.font = ImageFont.truetype(self.board.font_path, self.sizes.font)
 
-    def input_arrow(self, x, y, connection_color, draw):
+    def right_arrow(self, x, y, connection_color, draw):
         draw.line(
             (
                 x-self.sizes.connection_size*0.6,
@@ -33,7 +33,7 @@ class Draw:
             width=self.sizes.connection_width
         )
 
-    def output_arrow(self, x, y, connection_color, draw):
+    def left_arrow(self, x, y, connection_color, draw):
         draw.line(
             (
                 x-self.sizes.connection_size*0.6,
@@ -73,10 +73,10 @@ class Draw:
         if right_side:
             self.sizes.connection_size = -abs(self.sizes.connection_size)
 
-            if connection_to_draw.in_out == 'in':
-                connection_to_draw.in_out = 'out'
-            elif connection_to_draw.in_out == 'out':
-                connection_to_draw.in_out = 'in'
+            if connection_to_draw.in_out == "Input":
+                connection_to_draw.in_out = "Output"
+            elif connection_to_draw.in_out == "Output":
+                connection_to_draw.in_out = "Input"
 
         else:
             self.sizes.connection_size = abs(self.sizes.connection_size)
@@ -99,15 +99,37 @@ class Draw:
             width=self.sizes.connection_width
         )
 
-        if connection_to_draw.in_out == 'in':
-            self.input_arrow(x, y, connection_color, draw)
+        if connection_to_draw.in_out == "Input":
+            self.right_arrow(x, y, connection_color, draw)
 
-        elif connection_to_draw.in_out == 'out':
-            self.output_arrow(x, y, connection_color, draw)
+        elif connection_to_draw.in_out == "Output":
+            self.left_arrow(x, y, connection_color, draw)
 
-        elif connection_to_draw.in_out == 'in_out':
-            self.output_arrow(x-15, y, connection_color, draw)
-            self.input_arrow(x+15, y, connection_color, draw)
+        elif connection_to_draw.in_out == "Input_Output":
+            self.left_arrow(x-15, y, connection_color, draw)
+            self.right_arrow(x+15, y, connection_color, draw)
+
+        elif connection_to_draw.in_out == "InputPullup":
+
+            if right_side:
+                self.left_arrow(x, y, connection_color, draw)
+            else:
+                self.right_arrow(x, y, connection_color, draw)
+
+            init_x = x - self.sizes.connection_radius
+            init_y = y - self.sizes.connection_radius
+            end_x = x + self.sizes.connection_radius
+            end_y = y + self.sizes.connection_radius
+
+            draw.ellipse(
+                (
+                    (init_x)-self.sizes.connection_size*0.55,
+                    (init_y),
+                    (end_x)-self.sizes.connection_size*0.55,
+                    (end_y)
+                ),
+                fill=connection_color
+            )
 
     def name(self, connection_to_draw: Connection):
         '''

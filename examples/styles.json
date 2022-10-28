@@ -59,142 +59,142 @@
     "Connections": {
         "RESET": {
             "Name": "Reset push button",
-            "InOut": "in",
+            "InOut": "InputPullup",
             "Type": "Others"
         },
         "3.3V": {
             "Name": "3.3V Supply",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Power"
         },
         "5V": {
             "Name": "5V Supply",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Power"
         },
         "GND1": {
             "Name": "GND 1",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Ground"
         },
         "GND2": {
             "Name": "GND DC Power",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Ground"
         },
         "VIN": {
             "Name": "12V DC Power",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Power"
         },
         "A0": {
             "Name": "Velocity Pot",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Sensors"
         },
         "A1": {
             "Name": "Left light sensor",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Sensors"
         },
         "A2": {
             "Name": "Right light sensor",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Sensors"
         },
         "A3": {
             "Name": "Temperature sensor",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Sensors"
         },
         "A4": {
             "Name": "Force sensor",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Sensors"
         },
         "A5": {
             "Name": "Battery voltage",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Sensors"
         },
         "SCL": {
             "Name": "I2C SCL Gyro",
-            "InOut": "in_out",
+            "InOut": "Input_Output",
             "Type": "Others"
         },
         "SDA": {
             "Name": "I2C SDA Gyro",
-            "InOut": "in_out",
+            "InOut": "Input_Output",
             "Type": "Others"
         },
         "GND3": {
             "Name": "Commom GND",
-            "InOut": "in_out",
+            "InOut": "Input_Output",
             "Type": "Ground"
         },
         "D2": {
             "Name": "Switch button",
-            "InOut": "in",
+            "InOut": "InputPullup",
             "Type": "Sensors"
         },
         "D3": {
             "Name": "LED1",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Actuators"
         },
         "D4": {
             "Name": "LED2",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Actuators"
         },
         "D5": {
             "Name": "PWM IN1",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Actuators"
         },
         "D6": {
             "Name": "PWM IN2",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Actuators"
         },
         "D7": {
             "Name": ":P",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Others"
         },
         "D8": {
             "Name": "Pequenos também, olha:",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Others"
         },
         "D9": {
             "Name": "PWM IN3",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Actuators"
         },
         "D10": {
             "Name": "PWM IN4",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Actuators"
         },
         "D11": {
             "Name": "PWM Servo",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Actuators"
         },
         "D12": {
             "Name": "Você pode usar nomes super ultra mega longos",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Others"
         },
         "TX": {
             "Name": "TX Bluetooth",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Others"
         },
         "RX": {
             "Name": "RX Bluetooth",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Others"
         }
     }

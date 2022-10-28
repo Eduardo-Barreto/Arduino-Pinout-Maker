@@ -3,82 +3,82 @@
     "Connections": {
         "EN": {
             "Name": "Enable pin",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Default"
         },
         "MS1": {
             "Name": "Microstep 1",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Microstepping"
         },
         "MS2": {
             "Name": "Microstep 2",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Microstepping"
         },
         "MS3": {
             "Name": "Microstep 3",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Microstepping"
         },
         "RESET": {
             "Name": "Reset pin",
-            "InOut": "in",
+            "InOut": "InputPullup",
             "Type": "Others"
         },
         "SLEEP": {
             "Name": "Sleep pin",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Others"
         },
         "STEP": {
             "Name": "Step pin",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Default"
         },
         "DIR": {
             "Name": "Direction pin",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Default"
         },
         "VMOT": {
             "Name": "Motor supply",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Power"
         },
         "GND1": {
             "Name": "Motor ground",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Ground"
         },
         "2B": {
             "Name": "2B pin",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Motor"
         },
         "2A": {
             "Name": "2A pin",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Motor"
         },
         "1A": {
             "Name": "1A pin",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Motor"
         },
         "1B": {
             "Name": "1B pin",
-            "InOut": "out",
+            "InOut": "Output",
             "Type": "Motor"
         },
         "VDD": {
             "Name": "Logic supply",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Power"
         },
         "GND2": {
             "Name": "Ground",
-            "InOut": "in",
+            "InOut": "Input",
             "Type": "Ground"
         }
     }
