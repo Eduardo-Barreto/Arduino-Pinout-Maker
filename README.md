@@ -114,4 +114,4 @@ As conexões também são feitas no arquivo JSON, assim como o exemplo abaixo.
 ```
 
 Esse exemplo cria 3 conexões no pino D11, D10 e D9, respectivamente.
-![Connections](./examples/connections.png)
+![Connections](./examples/Connections.png)
